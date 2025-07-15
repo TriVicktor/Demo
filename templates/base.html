@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Blog của tôi</title> {# Khối cho tiêu đề cụ thể của từng trang #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> {# Liên kết CSS chung #}
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('index') }}">Trang chủ</a>
+            <a href="{{ url_for('add_post') }}">Thêm bài viết</a>
+        </nav>
+        <h1>{% block page_heading %}Blog đơn giản{% endblock %}</h1> {# Khối cho tiêu đề trang #}
+    </header>
+
+    <main>
+        {% block content %}{% endblock %} {# Khối cho nội dung chính của từng trang #}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Blog của tôi. Tất cả bản quyền thuộc về tôi.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {# Kế thừa từ base.html #}
+
+{% block title %}Trang chủ{% endblock %} {# Định nghĩa tiêu đề cụ thể cho trang này #}
+
+{% block page_heading %}Các bài viết mới nhất{% endblock %} {# Định nghĩa tiêu đề chính cho trang này #}
+
+{% block content %} {# Định nghĩa nội dung chính của trang #}
+    {% if posts %} {# Kiểm tra nếu có bài viết nào không #}
+        {% for post in posts %} {# Lặp qua từng bài viết #}
+            <article class="post">
+                <h2>{{ post.title }}</h2> {# Hiển thị tiêu đề bài viết #}
+                <p>{{ post.content }}</p> {# Hiển thị nội dung bài viết #}
+            </article>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>Chưa có bài viết nào. Hãy <a href="{{ url_for('add_post') }}">thêm bài viết đầu tiên</a> của bạn!</p>
+    {% endif %}
+{% endblock %}
